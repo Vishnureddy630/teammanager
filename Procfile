@@ -1,1 +1,1 @@
-gunicorn teammanager.wsgi:application
+web: gunicorn teammanager.wsgi:application
