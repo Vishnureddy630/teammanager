@@ -1,1 +1,1 @@
-gunicorn teammanager.wsgi:application --workers 3
+web: gunicorn teammanager.wsgi:application
