@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECRET_KEY = 'django-insecure-$@!&bs1c4-1=(nyuz^*%31y82j5o5&^&n^x+xbrf3e09r8@0km'
 SECRET_KEY = os.environ.get("SECRET_KEY", "fallback-key")
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
 # Application definition
