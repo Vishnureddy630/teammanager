@@ -26,7 +26,9 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "fallback-key")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["https://web-production-c42a.up.railway.app","127.0.0.1"]
+CSRF_TRUSTED_ORIGINS=["https://web-production-c42a.up.railway.app","https://127.0.0.1"]
+SECURE_CROSS_ORIGIN_OPENER_POLICY="same-origin-allow-popups"
 
 
 # Application definition
