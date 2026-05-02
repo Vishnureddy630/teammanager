@@ -4,8 +4,9 @@ from django.contrib.auth.models import User
 from accounts.models import Profile
 from .models import Project, Task
 from datetime import date
+from django.views.decorators.csrf import csrf_exempt
 
-
+@csrf_exempt
 @login_required
 def dashboard(request):
     profile = Profile.objects.get(user=request.user)
@@ -29,6 +30,7 @@ def dashboard(request):
     return render(request, 'tasksystem/dashboard.html', context)
 
 
+@csrf_exempt
 @login_required
 def create_project(request):
     profile = Profile.objects.get(user=request.user)
@@ -60,6 +62,7 @@ def create_project(request):
     return render(request, 'tasksystem/create_project.html', {'users': users})
 
 
+@csrf_exempt
 @login_required
 def project_details(request, project_id):
     project = get_object_or_404(Project, id=project_id)
@@ -72,6 +75,7 @@ def project_details(request, project_id):
     })
 
 
+@csrf_exempt
 @login_required
 def create_task(request, project_id):
     project = get_object_or_404(Project, id=project_id)
@@ -100,6 +104,7 @@ def create_task(request, project_id):
     })
 
 
+@csrf_exempt
 @login_required
 def my_tasks(request):
     tasks = Task.objects.filter(assigned_to=request.user)
@@ -109,6 +114,7 @@ def my_tasks(request):
     })
 
 
+@csrf_exempt
 @login_required
 def edit_task(request, task_id):
     task = get_object_or_404(Task, id=task_id)
